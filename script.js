@@ -29,8 +29,16 @@ if (navigator.geolocation)
     function onMapClick(e) {
       const { lat, lng } = e.latlng
       L.marker([lat, lng]).addTo(map)
-        .bindPopup(`lat: ${lat.toFixed(2)}, lng: ${lng.toFixed(2)}`)
-        .openPopup();
+        .bindPopup(L.popup({
+          maxWidth: 250,
+          minWidth: 100,
+          autoClose: false,
+          closeOnClick: false,
+          className: 'running-popup',
+
+        }))
+        .setPopupContent('workout')
+        .openPopup()
     }
     map.on('click', onMapClick)
 
