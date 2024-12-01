@@ -14,8 +14,9 @@ const inputElevation = document.querySelector('.form__input--elevation');
 
 class Workout {
   date = new Date()
-  id = (new Date() + ''.slice(-10))
+  static id = 1
   constructor(coords, distance, duration) {
+    this.id = ++Workout.id
     this.coords = coords
     this.distance = distance
     this.duration = duration
@@ -48,8 +49,6 @@ class Cycling extends Workout {
     return this.speed
   }
 }
-
-
 class App {
   //private
   #map
