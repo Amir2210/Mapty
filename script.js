@@ -233,7 +233,10 @@ class App {
     form.insertAdjacentHTML('afterend', html)
   }
 
-
+  resetApp() {
+    localStorage.removeItem('workoutsData')
+    location.reload()
+  }
 }
 
 const app = new App()
