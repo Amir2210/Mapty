@@ -12,7 +12,7 @@ const inputElevation = document.querySelector('.form__input--elevation');
 
 class Workout {
   date = new Date()
-  static id = 1
+  static id = Date.now()
   constructor(coords, distance, duration) {
     this.id = ++Workout.id
     this.coords = coords
