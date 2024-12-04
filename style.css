@@ -77,9 +77,11 @@ a:visited {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 0.75rem 1.5rem;
 }
+
 .workout--running {
   border-left: 5px solid var(--color-brand--2);
 }
+
 .workout--cycling {
   border-left: 5px solid var(--color-brand--1);
 }
@@ -215,6 +217,21 @@ a:visited {
 .running-popup .leaflet-popup-content-wrapper {
   border-left: 5px solid var(--color-brand--2);
 }
+
 .cycling-popup .leaflet-popup-content-wrapper {
   border-left: 5px solid var(--color-brand--1);
+}
+
+.rst-btn {
+  background-color: hsla(4, 92%, 64%, 0.959);
+  outline: none;
+  border: none;
+  color: var(--color-light--2);
+  font-weight: 400;
+  line-height: 1.6;
+  font-size: 2rem;
+  padding: 5px;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
 }
