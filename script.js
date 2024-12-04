@@ -69,6 +69,15 @@ class App {
 
     inputType.addEventListener('change', this._toggleElevationField)
     containerWorkouts.addEventListener('click', this._moveToPopup.bind(this))
+    // window.addEventListener("load", this._getDataFromLocalStorage.bind(this))
+
+  }
+
+  _getDataFromLocalStorage() {
+    this.#workouts = JSON.parse(localStorage.getItem("workoutsData")) || []
+    if (!this.#workouts) return
+    this.#workouts.map(workout => this._renderWorkout(workout))
+    this.#workouts.map(workout => this._renderWorkoutMarker(workout))
   }
 
   _moveToPopup(e) {
@@ -93,6 +102,7 @@ class App {
 
   _loadMap(position) {
     const { latitude, longitude } = position.coords
+    console.log(latitude, longitude)
     this.#map = L.map('map').setView([latitude, longitude], 15)
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
@@ -104,6 +114,7 @@ class App {
       .openPopup()
 
     this.#map.on('click', this._showForm.bind(this))
+    this._getDataFromLocalStorage()
   }
 
   _showForm(mapE) {
@@ -156,6 +167,7 @@ class App {
     this._renderWorkout(workout)
     form.classList.add('hidden')
     inputDistance.value = inputDuration.value = inputCadence.value = inputElevation.value = ''
+    localStorage.setItem("workoutsData", JSON.stringify(this.#workouts))
   }
 
   _renderWorkoutMarker(workout) {
@@ -220,6 +232,8 @@ class App {
     }
     form.insertAdjacentHTML('afterend', html)
   }
+
+
 }
 
 const app = new App()
