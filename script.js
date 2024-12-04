@@ -60,7 +60,7 @@ class App {
   //private
   #map
   #mapEvent
-  #workout = []
+  #workouts = []
   constructor() {
     //active the function when we create a new App
     this._getPosition()
@@ -68,6 +68,20 @@ class App {
     form.addEventListener('submit', this._newWorkout.bind(this))
 
     inputType.addEventListener('change', this._toggleElevationField)
+    containerWorkouts.addEventListener('click', this._moveToPopup.bind(this))
+  }
+
+  _moveToPopup(e) {
+    const workoutEl = e.target.closest('.workout')
+    if (!workoutEl) return
+    const workout = this.#workouts.find(work => work.id === +workoutEl.dataset.id)
+
+    this.#map.setView(workout.coords, 15, {
+      animate: true,
+      pan: {
+        duration: 2
+      }
+    })
   }
 
   _getPosition() {
@@ -137,7 +151,7 @@ class App {
 
     }
 
-    this.#workout.push(workout)
+    this.#workouts.push(workout)
     this._renderWorkoutMarker(workout)
     this._renderWorkout(workout)
     form.classList.add('hidden')
