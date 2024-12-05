@@ -1,6 +1,8 @@
 🏋️‍♂️ Workout Tracker Application
 This is a Workout Tracker Application that utilizes Object-Oriented Programming (OOP) principles, geolocation, and Leaflet.js to allow users to log their running and cycling workouts on an interactive map. The application persists data locally, so workouts are saved even when the browser is closed. 🗺️
 
+Live Website - 
+
 ✨ Features
 💻 Object-Oriented Programming (OOP):
 The application is built using OOP concepts for modularity and scalability. Key classes include:
@@ -35,12 +37,12 @@ Dynamically toggles between cadence and elevation gain fields based on workout t
 Option to clear all saved workouts and reset the app.
 
 🛠️ Technologies Used
-HTML 🖋️
-CSS 🎨
-JavaScript 💻
-Object-Oriented Programming (OOP) 🔄
-Leaflet.js 🗺️ for map functionality
-LocalStorage 💾 for persistent data
+* HTML 🖋️
+* CSS 🎨
+* JavaScript 💻
+* Object-Oriented Programming (OOP) 🔄
+* Leaflet.js 🗺️ for map functionality
+* LocalStorage 💾 for persistent data
 🚀 How to Use
 Start the Application:
 Open the application in your browser. Allow location access when prompted.
